@@ -1,18 +1,10 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.nav__color {
+    background-color: #0da487;
 }
-.figure__logo img{
-    width: 150px;
-    height: auto;
-
-    
-
-
+.background {
+    background-color: #0da487;
 }
-@media screen and (max-width: 600px) {
-    .header{
-     flex-direction: column;
-    }
- }
+.position{
+    padding-left:70rem;
+}
+
