@@ -24,14 +24,16 @@ const containerCardProducts = document.querySelector(".container__cards")
 console.log(containerCardProducts)
 
 //Pintar los productos dentro del contenedor
-const printProducts = (container, products) => {
+const printProducts = async(container, products) => {
+    console.log(products)
     //vaciar contenedor
     container.innerHTML = "";
     //Recorrer array
     products.forEach((product) => {
         container.innerHTML += `
-        <div class="card" style="width: 18rem;">
-            <img src=${product.image} class="card-img-top" alt=${product.nombre}>
+        <div class="card  container col-8 " >
+        <div class = "row">
+            <img src=${product.image} class="card-img-top col-3 w-25" alt=${product.nombre}>
             <div class="card-body">
                 <h5 class="card-title">${product.nombre}</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -45,7 +47,7 @@ const printProducts = (container, products) => {
                 <a href="#" class="card-link">Card link</a>
                 <a href="#" class="card-link">Another link</a>
             </div>
-            </div>
+        </div>
 
         `
         
@@ -53,7 +55,9 @@ const printProducts = (container, products) => {
 
 
 }
+
 // Escuchar al evento cuando se recarga la pagina y cuando suceda esto se hace un callback para que se pinten los productos
-document.addEventListener('DOMContentLoaded', () => {
-    printProducts(containerCardProducts, URL_API )
+document.addEventListener ('DOMContentLoaded',  async () => {
+    const productos = await getProductsApi (URL_API)
+    printProducts(containerCardProducts, productos )
 })

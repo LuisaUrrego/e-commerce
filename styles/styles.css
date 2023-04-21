@@ -28,5 +28,11 @@
     
     
 }
+.main{
+    display: flex;
+}
+.container__cards{
+    display: flex;
+}
 
 
