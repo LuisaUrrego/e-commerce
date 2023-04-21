@@ -31,9 +31,9 @@ const printProducts = async(container, products) => {
     //Recorrer array
     products.forEach((product) => {
         container.innerHTML += `
-        <div class="card  container col-8 " >
+        <div class="card  container  " >
         <div class = "row">
-            <img src=${product.image} class="card-img-top col-3 w-25" alt=${product.nombre}>
+            <img src=${product.image} "class="card-img-top col-4 " alt=${product.nombre}>
             <div class="card-body">
                 <h5 class="card-title">${product.nombre}</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
