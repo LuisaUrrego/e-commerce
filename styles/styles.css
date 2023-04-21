@@ -1,3 +1,8 @@
+:root{
+    --theme-color: #0da487;
+    --black:#000;
+}
+
 .nav__color {
     background-color: #0da487;
 }
@@ -7,4 +12,21 @@
 .position{
     padding-left:70rem;
 }
+.separador{
+    border: 2px solid #0da487;
+}
+.text-primary li {
+
+    color: var(--black) !important;
+}
+.nav-item a{
+    color: var(--black) ;
+}
+.nav-item img {
+    width: 2rem;
+    
+    
+    
+}
+
 
