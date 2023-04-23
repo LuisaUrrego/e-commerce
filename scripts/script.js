@@ -22,7 +22,7 @@ getProductsApi(URL_API)
 //Mostrar productos enlistados en cards
 // 1. Capturar el contenedor para imprimir las cards
 const containerCardProducts = document.querySelector(".container__cards")
-console.log(containerCardProducts)
+
 
 //Pintar los productos dentro del contenedor
 const printProducts = (container, products) => {
@@ -32,21 +32,28 @@ const printProducts = (container, products) => {
     //Recorrer array
     products.forEach((product) => {
         container.innerHTML += `
-        <div class="card " >
+        <div class="card d-flex justify-content-space-between" >
+
        
-            <img src=${product.image} "class="card-img-top" alt=${product.nombre}>
-            <div class="card-body">
+            <img src=${product.image} "class="card-img-top " alt=${product.nombre}>
+            <div class="card-body ">
                 <h5 class="card-title">${product.nombre}</h5>
                 
             </div>
+            <di class = "button__cards">
+                <button class = "cards__buttons cards__buttons--favorite" >
+                    <span class="material-symbols-outlined">favorite </span>
+                   
+                    
+                </button>
+            </di>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">An item</li>
                 <li class="list-group-item">A second item</li>
                 <li class="list-group-item">A third item</li>
             </ul>
-            <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+            <div class="button__add">
+               <button class= "añadir__carrito añadir__carrito--add ">Add   </button>
             </div>
        
 
@@ -78,9 +85,38 @@ productos.forEach ((item) =>{
     }
 })
 //console.log(categoriesProducts)
+document.addEventListener ("click", async(event) => {
+    productos = await getProductsApi (URL_API)
+    console.log(productos)
+    if (event.target.classList.contains("filtro__categorias")) {
+        const filter = event.target.name
+        console.log(filter)
 
-categoriesProducts.forEach ( (item) =>{
-    const filtro = document.getElementsByClassName (item)[0];
-    console.log(filtro)
+        const productFilter = productos.filter((producto) => producto.categoria.includes(filter));        
+        printProducts(containerCardProducts, productFilter )
+        console.log(productFilter)
+        
+
+    }
+    
+
 
 })
+
+
+
+
+// categoriesProducts.forEach ( (item) =>{
+    
+//     const filtro = document.getElementsByClassName (item)[0];
+//     filtro.addEventListener("click", () => {
+//         const productFilter =
+//             item === "vegetable"
+//                 ? productos
+//                 : productos.filter((element) => element.categoria === item);
+//                 mostrarCategorias                
+
+//     })
+//     //console.log(filtro)
+
+// })
