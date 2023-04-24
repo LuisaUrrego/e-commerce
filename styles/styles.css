@@ -44,11 +44,17 @@
     top: 15rem;
     left: 4rem;
     visibility: hidden;
+   
 }
+
 .card:hover .button__cards{
     visibility:visible;
     cursor: pointer;
 }
+.btn_all_categories{
+    background-color: var(--theme-color);
+} 
+
 
 
 
