@@ -11,6 +11,8 @@
 9- Eliminar productos del carrito 
 
 ## Estadisticas Wakatime
+[Url]("https://wakatime.com/projects/e-commerce")
+
 
 
 
