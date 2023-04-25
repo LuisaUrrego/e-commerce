@@ -9,3 +9,4 @@
 7- Agregar hover de favoritos sobre las cards
 8- Funcionalidades carrito de copras y añadir a favoritos
 9- Eliminar productos del carrito 
+
