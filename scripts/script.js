@@ -52,6 +52,34 @@ const postCarrito = async (url, productos) => {
     
 
 }
+const getFavoritos = async (url, productos) => {
+    try {
+        const { data }= await axios.get(url + "favoritos", productos)
+       // console.log(data)
+        return data;
+
+    }catch (error) {
+        console.log(error);
+        alert("Usuario ocurrio un error");
+        return {};
+
+    }
+}
+const postFavoritos = async (url, productos) => {
+    try {
+        const { data }= await axios.post(url + "favoritos", productos)
+    // console.log(data)
+        return data;
+
+    }catch (error) {
+        console.log(error);
+        alert("Usuario ocurrio un error");
+        return {};
+
+    }
+    
+
+}
 
 //Mostrar productos enlistados en cards
 // 1. Capturar el contenedor para imprimir las cards
@@ -68,21 +96,23 @@ const printProducts = (container, products) => {
     //Recorrer array
     products.forEach((product) => {
         container.innerHTML += `
-        <div class="card d-flex justify-content-space-between" >
+        <div class="card" >
 
        
-            <img src=${product.image} "class="card-img-top " alt=${product.nombre}>
+            <img src=${product.image} class="card-img-top" alt=${product.nombre}>
             <div class="card-body ">
-                <h5 class="card-title">${product.nombre}</h5>
-                
-            </div>
             <di class = "button__cards">
-                <div class = "cards__buttons cards__buttons--favorite "  > 
-                    <span class="material-symbols-outlined favorite" data-id-favorite=${product.id} data-favorite="add" ${product.cantidad}>favorite </span>
-                   
-                    
+            <div class = "cards__buttons cards__buttons--favorite "  > 
+                <span class="material-symbols-outlined favorite" data-id-favorite=${product.id} data-favorite="add" ${product.cantidad}>favorite </span>
+               
+                
                 </div>
             </di>
+                <h5 class="card-title">${product.nombre}</h5>
+
+                
+            </div>
+
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">${product.categoria}</li>
                 <li class="list-group-item">${product.peso}</li>
@@ -146,7 +176,8 @@ document.addEventListener ("click", async (event) => {
     //controlar el click con attribute 
     const addCartId = event.target.getAttribute("data-id-button")
     const addCart = event.target.getAttribute("data-button")
-    console.log(addCartId, addCart)
+   
+
     if (addCart) {
         //si el click existe se recupera la informacion
         const productCart = productos.find(product=> product.id == addCartId)
@@ -182,14 +213,14 @@ document.addEventListener ("click", async (event) => {
     if (addFavorites) {
         //si el click existe se recupera la informacion
         const productFavorite = productos.find(product=> product.id == addFavoritesId)
-        const favorite = await getCarrito (URL_API)
+        const favorite = await getFavoritos (URL_API)
         //Vrificar que no hayan productos repetidos en el carrito de compras por el ID
         if (favorite.find(product => product.id == addFavoritesId)) {
             Swal.fire('¡Ya se encuentra en favoritos!', 'Tu producto ya se encuentra en favoritos', 'info');
             
         }else {
             Swal.fire('¡Producto agregado a favoritos!', 'Tu producto ya se encuentra agregado a favoritos', 'info');
-            await postCarrito (URL_API, productFavorite)
+            await postFavoritos (URL_API, productFavorite)
 
         }
         

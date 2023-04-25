@@ -2,6 +2,7 @@
     --theme-color: #0da487;
     --black:#000;
 }
+
 .nav__color {
     background-color: #0da487;
 }
@@ -26,13 +27,9 @@
     
     
     
+    
 }
 .btn_all_categories{
     background-color: var(--theme-color);
 } 
-.image__product img{
-    width: 20px;
-}
-.card-title{
-    font-size: 20px;
-}
+
