@@ -11,16 +11,17 @@
 ##### 9- Eliminar productos del carrito 
 
 ## Estadisticas Wakatime
-[ESTADISTICAS]("https://wakatime.com/projects/e-commerce")
+https://wakatime.com/projects/e-commerce
  
 ## Url miniback
-[MINIBACK]("http://localhost:3000/")
+http://localhost:3000/
 
 ## Estructura de carpetas
 ![image](https://user-images.githubusercontent.com/126603617/234698393-d7821e65-fc6e-4637-a2dd-9fdb863107bb.png)
 
 ## Vistas
 ![image](https://user-images.githubusercontent.com/126603617/234698548-63e9fe61-5dd4-4f64-8ec8-259311770128.png)
+
 
 
 
